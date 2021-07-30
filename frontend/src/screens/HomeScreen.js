@@ -8,7 +8,9 @@ import Loader from '../components/Loader';
 import Message from '../components/Message';
 // import axios from 'axios'
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
+
+    const keyword = props.match.params.keyword
 
     const dispatch = useDispatch()
 
@@ -23,8 +25,8 @@ const HomeScreen = () => {
         //     setProducts(res.data)
         // }
         // fetchProducts()
-        dispatch(listProducts())
-    }, [dispatch])
+        dispatch(listProducts(keyword))
+    }, [dispatch, keyword])
 
 
 
