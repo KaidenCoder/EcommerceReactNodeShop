@@ -9,9 +9,7 @@ import Message from '../components/Message'
 const PlaceOrderScreen = (props) => {
 
     const dispatch = useDispatch()
-
     const cart = useSelector(state => state.cart)
-    console.log(cart)
 
     const paymentMethod = localStorage.getItem('paymentMethod') ?
         JSON.stringify(localStorage.getItem('paymentMethod'))

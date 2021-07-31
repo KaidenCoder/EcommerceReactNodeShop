@@ -17,7 +17,6 @@ export const listProducts = (keyword = '') => async (dispatch) => {
     }
 }
 
-
 export const listProductDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_DETAILS_REQUEST })
@@ -34,7 +33,6 @@ export const listProductDetails = (id) => async (dispatch) => {
     }
 }
 
-
 export const deleteProduct = (id) => async (dispatch, getState) => {
     try {
         dispatch({
@@ -44,8 +42,6 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
         // const { userLogin: { userInfo } } = getState()
 
         const userInfo = localStorage.getItem('userInfo') != null ? JSON.parse(localStorage.getItem('userInfo')) : ''
-
-
 
         const config = {
             headers: {
@@ -68,7 +64,6 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
         })
     }
 }
-
 
 export const createProduct = () => async (dispatch, getState) => {
     try {
@@ -100,7 +95,6 @@ export const createProduct = () => async (dispatch, getState) => {
         })
     }
 }
-
 
 export const updateProduct = (product) => async (dispatch, getState) => {
     try {

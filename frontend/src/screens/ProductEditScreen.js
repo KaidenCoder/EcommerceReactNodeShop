@@ -24,7 +24,7 @@ const ProductEditScreen = (props) => {
 
     const dispatch = useDispatch()
 
-    const nameFromStorage = localStorage.getItem('userInfo') != null ? JSON.parse(localStorage.getItem('userInfo')) : ''
+    // const nameFromStorage = localStorage.getItem('userInfo') != null ? JSON.parse(localStorage.getItem('userInfo')) : ''
 
     const productDetails = useSelector(state => state.productDetails)
     const { loading, error, product } = productDetails
@@ -52,9 +52,6 @@ const ProductEditScreen = (props) => {
                 setDescription(product.description)
             }
         }
-
-
-
     }, [dispatch, props.history, productId, product, successUpdate])
 
     const uploadFileHandler = async (e) => {
@@ -91,7 +88,6 @@ const ProductEditScreen = (props) => {
             description,
             countInStock
         }))
-
     }
 
     return (

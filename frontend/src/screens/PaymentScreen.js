@@ -15,19 +15,12 @@ const PaymentScreen = (props) => {
     if (!shippingAddress.address) {
         props.history.push('/shipping')
     }
-    console.log(cart)
-    console.log(shippingAddress)
-
-
 
     const ss = localStorage.getItem('paymentMethod')
         ? JSON.parse(localStorage.getItem('paymentMethod'))
         : {}
 
-    console.log(ss)
-
     const [paymentMethod, setPaymentMethod] = useState("Paypal")
-
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -42,7 +35,6 @@ const PaymentScreen = (props) => {
             <Form onSubmit={submitHandler}>
                 <Form.Group controlId="address">
                     <Form.Label as="legend">Select Method</Form.Label>
-
                     <br />
                     <Col>
                         <Form.Check type="radio" label="PayPal or Credit Card"
@@ -51,15 +43,8 @@ const PaymentScreen = (props) => {
                             value="PayPal"
                             checked
                             onChange={(e) => setPaymentMethod(e.target.value)}>
-
                         </Form.Check>
-                        {/* <Form.Check type="radio" label="Stripe"
-                            id="Stripe"
-                            name="paymentmethod"
-                            value="Stripe"
-                            onChange={(e) => setPaymentMethod(e.target.value)}>
 
-                        </Form.Check> */}
                     </Col>
                 </Form.Group>
                 <Button type="submit" variant="primary">

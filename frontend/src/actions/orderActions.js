@@ -7,13 +7,9 @@ export const createOrder = (order) => async (dispatch, getState) => {
         dispatch({
             type: ORDER_CREATE_REQUEST
         })
-
         // const { userLogin: { userInfo } } = getState()
 
         const userInfo = localStorage.getItem('userInfo') != null ? JSON.parse(localStorage.getItem('userInfo')) : ''
-
-        console.log(userInfo.token)
-
 
         const config = {
             headers: {
@@ -25,12 +21,11 @@ export const createOrder = (order) => async (dispatch, getState) => {
             `/api/orders`, order,
             config
         )
-        console.log(data)
+
         dispatch({
             type: ORDER_CREATE_SUCCESS,
             payload: data
         })
-
 
     } catch (error) {
         dispatch({
@@ -51,9 +46,6 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
 
         const userInfo = localStorage.getItem('userInfo') != null ? JSON.parse(localStorage.getItem('userInfo')) : ''
 
-        console.log(userInfo.token)
-
-
         const config = {
             headers: {
                 Authorization: `Bearer ${userInfo.token}`
@@ -63,12 +55,11 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
             `/api/orders/${id}`,
             config
         )
-        console.log(data)
+
         dispatch({
             type: ORDER_DETAILS_SUCCESS,
             payload: data
         })
-
 
     } catch (error) {
         dispatch({
@@ -77,9 +68,6 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
         })
     }
 }
-
-
-
 
 export const payOrder = (orderId, paymentResult) => async (dispatch, getState) => {
     try {
@@ -90,9 +78,6 @@ export const payOrder = (orderId, paymentResult) => async (dispatch, getState) =
         // const { userLogin: { userInfo } } = getState()
 
         const userInfo = localStorage.getItem('userInfo') != null ? JSON.parse(localStorage.getItem('userInfo')) : ''
-
-        console.log(userInfo.token)
-
 
         const config = {
             headers: {
@@ -109,7 +94,6 @@ export const payOrder = (orderId, paymentResult) => async (dispatch, getState) =
             type: ORDER_PAY_SUCCESS,
             payload: data
         })
-
 
     } catch (error) {
         dispatch({
@@ -154,8 +138,6 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
     }
 }
 
-
-
 export const listMyOrders = () => async (dispatch, getState) => {
     try {
         dispatch({
@@ -165,9 +147,6 @@ export const listMyOrders = () => async (dispatch, getState) => {
         // const { userLogin: { userInfo } } = getState()
 
         const userInfo = localStorage.getItem('userInfo') != null ? JSON.parse(localStorage.getItem('userInfo')) : ''
-
-        console.log(userInfo.token)
-
 
         const config = {
             headers: {
@@ -202,9 +181,6 @@ export const listOrders = () => async (dispatch, getState) => {
         // const { userLogin: { userInfo } } = getState()
 
         const userInfo = localStorage.getItem('userInfo') != null ? JSON.parse(localStorage.getItem('userInfo')) : ''
-
-        console.log(userInfo.token)
-
 
         const config = {
             headers: {

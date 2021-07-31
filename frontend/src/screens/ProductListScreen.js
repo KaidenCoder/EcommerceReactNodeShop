@@ -55,7 +55,7 @@ const ProductListScreen = (props) => {
                     <h1>Products</h1>
                 </Col>
                 <Col className="text-right">
-                    <Button className="my-3" onClick={createProductHandler}>
+                    <Button className="my-2" onClick={createProductHandler}>
                         <i className="fas fa-plus"></i> Create Product
                     </Button>
                 </Col>
@@ -72,6 +72,7 @@ const ProductListScreen = (props) => {
                                 <th>ID</th>
                                 <th>NAME</th>
                                 <th>PRICE</th>
+                                <th>STOCK</th>
                                 <th>CATEGORY</th>
                                 <th>BRAND</th>
                                 <th></th>
@@ -83,6 +84,7 @@ const ProductListScreen = (props) => {
                                     <td>{product._id}</td>
                                     <td>{product.name}</td>
                                     <td>${product.price}</td>
+                                    <td>{product.countInStock}</td>
                                     <td>{product.category}</td>
                                     <td>{product.brand}</td>
                                     <td>

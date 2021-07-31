@@ -1,5 +1,17 @@
 const products = [
   {
+    name: '2021 Apple MacBook Air (13.3-inch/33.78 cm, Apple M1 chip with 8‑core CPU and 7‑core GPU, 8GB RAM, 256GB SSD) - Gold',
+    image: '/images/laptop.jpeg',
+    description:
+      'The leaker claims that both the 14-inch MacBook Pro and the 16-inch MacBook Pro 2021 will get upgraded to 1080p webcams alongside the entire Mac lineup. --In a separate report, Ming-Chi Kuo claims that Apple will begin the production of Mini-LED powered MacBook Pros in the third quarter.',
+    brand: 'Apple',
+    category: 'Electronics',
+    price: 1089.99,
+    countInStock: 20,
+    rating: 5,
+    numReviews: 190,
+  },
+  {
     name: 'Airpods Wireless Bluetooth Headphones',
     image: '/images/airpods.jpg',
     description:
@@ -11,6 +23,7 @@ const products = [
     rating: 4.5,
     numReviews: 12,
   },
+
   {
     name: 'iPhone 11 Pro 256GB Memory',
     image: '/images/phone.jpg',

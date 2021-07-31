@@ -18,7 +18,7 @@ const UserEditScreen = (props) => {
 
     const dispatch = useDispatch()
 
-    const nameFromStorage = localStorage.getItem('userInfo') != null ? JSON.parse(localStorage.getItem('userInfo')) : ''
+    // const nameFromStorage = localStorage.getItem('userInfo') != null ? JSON.parse(localStorage.getItem('userInfo')) : ''
 
     const userDetails = useSelector(state => state.userDetails)
     const { loading, error, user } = userDetails
@@ -49,7 +49,6 @@ const UserEditScreen = (props) => {
             name,
             email, isAdmin
         }))
-
     }
 
     return (

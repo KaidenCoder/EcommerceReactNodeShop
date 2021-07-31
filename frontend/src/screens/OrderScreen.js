@@ -13,6 +13,7 @@ const OrderScreen = (props) => {
 
     const orderId = props.match.params.id
 
+    // Paypal
     const [sdkReady, setSdkReady] = useState(false)
 
     const dispatch = useDispatch()
@@ -21,15 +22,8 @@ const OrderScreen = (props) => {
         JSON.stringify(localStorage.getItem('paymentMethod'))
         : {}
 
-    // const userInfo = localStorage.getItem('userInfo') ?
-    //     JSON.stringify(localStorage.getItem('userInfo'))
-    //     : {}
-
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
-
-    console.log(userInfo)
-
 
     const orderDetails = useSelector(state => state.orderDetails)
     const { order, loading, error } = orderDetails
@@ -61,8 +55,6 @@ const OrderScreen = (props) => {
             document.body.appendChild(script)
         }
 
-
-        // if (!order || order._id !== orderId) {
         if (!order || successPay || successDeliver) {
             dispatch({
                 type: ORDER_PAY_RESET
@@ -79,7 +71,6 @@ const OrderScreen = (props) => {
             }
         }
 
-        // }
     }, [dispatch, orderId, successPay, successDeliver, order])
 
     const successPaymentHandler = (paymentResult) => {

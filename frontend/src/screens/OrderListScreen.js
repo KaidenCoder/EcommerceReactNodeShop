@@ -7,7 +7,6 @@ import Loader from '../components/Loader'
 import { listOrders } from '../actions/orderActions'
 
 
-
 const OrderListScreen = (props) => {
 
     const dispatch = useDispatch()
@@ -24,7 +23,6 @@ const OrderListScreen = (props) => {
         } else {
             props.history.push('/login')
         }
-
     }, [dispatch, props.history, userInfo])
 
 

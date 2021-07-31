@@ -3,21 +3,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import Rating from '../components/Rating'
-// import axios from 'axios'
 import { createProductReview, listProductDetails } from '../actions/productActions'
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
-// import products from '../products'
 
 const ProductScreen = (props) => {
     console.log(props)
     const [qty, setQty] = useState(1)
     const [rating, setRating] = useState(0)
     const [comment, setComment] = useState('')
-    // const product = products.find(p => p._id === props.match.params.id)
 
-    // const [product, setProduct] = useState({})
     const dispatch = useDispatch()
 
     const productDetails = useSelector(state => state.productDetails)
@@ -36,11 +32,7 @@ const ProductScreen = (props) => {
             setComment('')
             dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
         }
-        // const fetchProduct = async () => {
-        //     const res = await axios.get(`/api/products/${props.match.params.id}`)
-        //     setProduct(res.data)
-        // }
-        // fetchProduct()
+
         dispatch(listProductDetails(props.match.params.id))
     }, [dispatch, props.match, successProductReview])
 
@@ -58,17 +50,17 @@ const ProductScreen = (props) => {
 
     return (
         <div>
-            <Link className="btn btn-dark my-3" to="/">Go Back</Link>
+            <Link className="btn btn-dark m-2" to="/">Go Back</Link>
             {loading ? <Loader /> : error ? <Message variant="danger">{error}</Message> :
                 <>
                     <Row>
-                        <Col md={6}>
+                        <Col md={5}>
                             <Image src={product.image} alt={product.name} fluid />
                         </Col>
-                        <Col md={3}>
+                        <Col md={4}>
                             <ListGroup variant='flush'>
                                 <ListGroup.Item>
-                                    <h3>{product.name}</h3>
+                                    <h4>{product.name}</h4>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Rating
@@ -80,7 +72,10 @@ const ProductScreen = (props) => {
                                     Price: ${product.price}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                    Description: ${product.description}
+                                    In Stock Count: {product.countInStock}
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    Description: <span style={{ opacity: 0.7 }}>{product.description}</span>
                                 </ListGroup.Item>
                             </ListGroup>
                         </Col>
@@ -110,7 +105,7 @@ const ProductScreen = (props) => {
                                     {product.countInStock > 0 && (
                                         <ListGroup.Item>
                                             <Row>
-                                                <Col>Qty</Col>
+                                                <Col>Select Qty</Col>
                                                 <Col>
                                                     <Form.Control
                                                         as="select"
@@ -141,7 +136,7 @@ const ProductScreen = (props) => {
                     </Row>
                     <Row>
                         <Col md={6}>
-                            <h2>Reviews</h2>
+                            <h3>Reviews</h3>
                             {product.reviews == 0 && <Message>No reviews</Message>}
                             <ListGroup variant='flush'>
                                 {product.reviews.map(review => (
@@ -153,7 +148,7 @@ const ProductScreen = (props) => {
                                     </ListGroup.Item>
                                 ))}
                                 <ListGroup.Item>
-                                    <h2>Write a Customer Review</h2>
+                                    <h3>Write a Review</h3>
                                     {errorProductReview && <Message variant="danger">{errorProductReview}</Message>}
                                     {userInfo ? (<Form onSubmit={submitHandler}>
                                         <Form.Group controlId="rating">
@@ -183,6 +178,9 @@ const ProductScreen = (props) => {
                                     </Form>) : <Message>Please <Link to="/login">sign in</Link> to write a review</Message>}
                                 </ListGroup.Item>
                             </ListGroup>
+                        </Col>
+                        <Col md={6}>
+                            <h3>More items coming soon</h3>
                         </Col>
                     </Row>
                 </>

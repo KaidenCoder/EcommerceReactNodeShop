@@ -11,16 +11,10 @@ const ShippingScreen = (props) => {
 
     const cart = useSelector((state) => state.cart)
     const { shippingAddress } = cart
-    console.log(cart)
-    console.log(shippingAddress)
 
-
-
-    const ss = localStorage.getItem('shippingAddress')
-        ? JSON.parse(localStorage.getItem('shippingAddress'))
-        : {}
-
-    console.log(ss)
+    // const ss = localStorage.getItem('shippingAddress')
+    //     ? JSON.parse(localStorage.getItem('shippingAddress'))
+    //     : {}
 
     const [address, setAddress] = useState(shippingAddress.address)
     const [city, setCity] = useState(shippingAddress.setCity)

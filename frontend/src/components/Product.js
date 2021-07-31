@@ -8,13 +8,14 @@ const Product = (props) => {
     return (
         <Card className="my-3 p-3 rounded">
             <Link to={`/product/${props.product._id}`}>
-                <Card.Img src={props.product.image} variant='top' />
+                <Card.Img src={props.product.image} width="380" height="200" variant='top' />
             </Link>
             <Card.Body>
                 <Link to={`/product/${props.product._id}`}>
                     <Card.Title as='div'>
                         <strong>{props.product.name}</strong>
                     </Card.Title>
+
                 </Link>
 
                 <Card.Text as='div'>
@@ -26,7 +27,7 @@ const Product = (props) => {
                     />
                 </Card.Text>
 
-                <Card.Text as='h3'>${props.product.price}</Card.Text>
+                <Card.Text as='div'><span style={{ fontSize: "24px", color: 'black' }}>${props.product.price}</span>{" "}({props.product.countInStock} in Stock )</Card.Text>
             </Card.Body>
         </Card>
     )

@@ -10,7 +10,6 @@ const addOrderItems = asyncHandler(async (req, res) => {
     if (orderItems && orderItems.length == 0) {
         res.status(400)
         throw new Error('No order items')
-        return
     } else {
         const order = new Order({
             orderItems, user: req.user._id, shippingAddress, paymentMethod, itemsPrice, taxPrice, shippingPrice, totalPrice
@@ -60,7 +59,6 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
     }
 })
 
-
 // @desc    Update order to delivered
 // @route   GET /api/orders/:id/deliver
 // @access  Private/Admin
@@ -79,9 +77,6 @@ const updateOrderToDelivered = asyncHandler(async (req, res) => {
         throw new Error('Order not found')
     }
 })
-
-
-
 
 
 // @desc GET logged in user orders

@@ -7,7 +7,6 @@ import Loader from '../components/Loader'
 import { getUserDetails, updateUserProfile, } from '../actions/userActions'
 import { listMyOrders } from '../actions/orderActions'
 
-
 const ProfileScreen = (props) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -20,16 +19,11 @@ const ProfileScreen = (props) => {
     const userDetails = useSelector(state => state.userDetails)
     const { loading, error, user } = userDetails
 
-    console.log(userDetails)
-
-
-
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
 
     const userUpdateProfile = useSelector(state => state.userUpdateProfile)
     const { success } = userUpdateProfile
-    console.log(userUpdateProfile)
 
     const orderListMy = useSelector(state => state.orderListMy)
     const { loading: loadingOrders, error: errorOrders, orders } = orderListMy
@@ -55,7 +49,6 @@ const ProfileScreen = (props) => {
             setMessage('Password do not match')
         } else {
             // DISPATCH UPDATE
-            // dispatch(register(name, email, password))
             dispatch(updateUserProfile({ id: user._id, name, email, password }))
         }
 
@@ -108,7 +101,7 @@ const ProfileScreen = (props) => {
                 </Form>
             </Col>
             <Col md={9}>
-                <h2>My Orders</h2>
+                <h2 style={{ textAlign: "center" }}>My Orders</h2>
                 {loadingOrders ? <Loader /> : errorOrders ?
                     <Message variant="danger">{errorOrders}</Message> :
                     (

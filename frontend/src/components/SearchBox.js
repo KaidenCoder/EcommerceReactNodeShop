@@ -15,7 +15,7 @@ const SearchBox = (props) => {
     return (
         <Form onSubmit={submitHandler} inline>
             <div style={{ display: "flex" }}>
-                <Form.Control type="text" name="q" onChange={(e) => setKeyword(e.target.value)} placeholder="Search Products..."
+                <Form.Control type="text" name="q" onChange={(e) => setKeyword(e.target.value)} placeholder="Search Product..."
                     className="mr-sm-2 ml-sm-5">
                 </Form.Control>
                 <Button style={{ marginLeft: '10px' }} type="submit" variant="outline-success" className="p-2">Search</Button>

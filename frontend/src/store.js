@@ -28,9 +28,6 @@ const reducer = combineReducers({
     orderListMy: orderListMyReducer,
     orderList: orderListReducer
 })
-console.log(userDetailsReducer)
-// const cartItemsFromStorage = localStorage.getItem('cartItems') ?
-//     JSON.parse(localStorage.getItem('cartItems')) : []
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ?
     JSON.stringify(localStorage.getItem('userInfo'))
@@ -58,8 +55,6 @@ const initialState = {
         userInfo: userInfoFromStorage
     }
 }
-
-
 
 const middleware = [thunk]
 

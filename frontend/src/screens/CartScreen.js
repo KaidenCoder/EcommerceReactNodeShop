@@ -6,7 +6,7 @@ import { addToCart, removeFromCart } from '../actions/cartActions'
 import Message from '../components/Message'
 
 const CartScreen = (props) => {
-    console.log("Cartscreen", props)
+
     const productId = props.match.params.id
     const qty = props.location.search ? Number(props.location.search.split("=")[1]) : 1
     const dispatch = useDispatch()
